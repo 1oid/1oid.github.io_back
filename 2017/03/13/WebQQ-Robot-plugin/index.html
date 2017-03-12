@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,原创," />
 
 
 
@@ -87,12 +87,66 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Loid's Blog">
-<meta property="og:url" content="http://loid.online/index.html">
+<meta name="description" content="WebQQ Robot for plugin一个可自我开发利用插件的webqq协议机器人
+
+
+脚本说明
+此脚本由博主一个人完成,转载请注明出处.
+可以自己编写功能插件,下面由插件开发相关
+机器人开发测试群: 248122847
+所需环境:
+    Python2.7
+    requests模块
+
+关于插件开发
+
+格式
+可以参照plugins/文件夹下的插件
+# coding:utf-8
+clas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebQQ Robot plugin">
+<meta property="og:url" content="http://loid.online/2017/03/13/WebQQ-Robot-plugin/index.html">
 <meta property="og:site_name" content="Loid's Blog">
+<meta property="og:description" content="WebQQ Robot for plugin一个可自我开发利用插件的webqq协议机器人
+
+
+脚本说明
+此脚本由博主一个人完成,转载请注明出处.
+可以自己编写功能插件,下面由插件开发相关
+机器人开发测试群: 248122847
+所需环境:
+    Python2.7
+    requests模块
+
+关于插件开发
+
+格式
+可以参照plugins/文件夹下的插件
+# coding:utf-8
+clas">
+<meta property="og:image" content="http://loid.online/images/webqq01.jpg">
+<meta property="og:updated_time" content="2017-03-12T19:01:21.811Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Loid's Blog">
+<meta name="twitter:title" content="WebQQ Robot plugin">
+<meta name="twitter:description" content="WebQQ Robot for plugin一个可自我开发利用插件的webqq协议机器人
+
+
+脚本说明
+此脚本由博主一个人完成,转载请注明出处.
+可以自己编写功能插件,下面由插件开发相关
+机器人开发测试群: 248122847
+所需环境:
+    Python2.7
+    requests模块
+
+关于插件开发
+
+格式
+可以参照plugins/文件夹下的插件
+# coding:utf-8
+clas">
+<meta name="twitter:image" content="http://loid.online/images/webqq01.jpg">
 
 
 
@@ -120,13 +174,13 @@
 
 
 
-  <link rel="canonical" href="http://loid.online/"/>
+  <link rel="canonical" href="http://loid.online/2017/03/13/WebQQ-Robot-plugin/"/>
 
 
 
 
 
-  <title> Loid's Blog </title>
+  <title> WebQQ Robot plugin | Loid's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -151,9 +205,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,9 +288,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -268,10 +320,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/03/13/WebQQ-Robot-plugin/" itemprop="url">
-                  WebQQ Robot plugin
-                </a>
+                WebQQ Robot plugin
               
             
           </h2>
@@ -322,482 +371,120 @@
       
 
       
-        
-          
-          WebQQ Robot for plugin一个可自我开发利用插件的webqq协议机器人
-
-
-脚本说明
-此脚本由博主一个人完成,转载请注明出处.
+        <h2 id="WebQQ-Robot-for-plugin"><a href="#WebQQ-Robot-for-plugin" class="headerlink" title="WebQQ Robot for plugin"></a>WebQQ Robot for plugin</h2><p>一个可自我开发利用插件的webqq协议机器人</p>
+<hr>
+<ul>
+<li><p>脚本说明</p>
+<pre><code>此脚本由博主一个人完成,转载请注明出处.
 可以自己编写功能插件,下面由插件开发相关
 机器人开发测试群: 248122847
 所需环境:
     Python2.7
     requests模块
+</code></pre></li>
+<li><p>关于插件开发</p>
+<ul>
+<li><p>格式</p>
+<p>可以参照plugins/文件夹下的插件</p>
+<pre><code># coding:utf-8
+class Plugin:
+    &apos;&apos;&apos;
+    菜单插件
+    &apos;&apos;&apos;
+    def __init__(self,command):
+        # 接受用户指令
+        self.command = command
 
+    # 判断用户发送的指令
+    # 发送过来的指令
+    def _cmd(self):
+        if self.command[:4] == &apos;help&apos;:
+            return self.usage
+</code></pre></li>
+<li>关于函数说明<pre><code>__init__(self,command)  必须, 用来接受用户参数
+_cmd(self)              必须, 用来处理并返回结果,结果是字符串
+</code></pre></li>
+<li>关于插件开启<pre><code>需要在startConf.py 下添加指令白名单.
+比如需要接收用户的 ip:127.0.0.1
+那么你可以在ALLOW_COMMAND 里面加上[&quot;ip&quot;]
+</code></pre></li>
+<li>关于机器人启用<pre><code>你需要先在网页端登录机器人,因为webqq没有输入账号的选项.
+所以说只能现在web端登录机器人,然后替换cookies 和ptwebqq值
+具体替换在startConf.py 里 我已经标记了需要替换的两个值
+最后就是用python webqq.py 开启机器人.
+</code></pre>  注: 上面的ptwebq值,就是你抓取流量的时候里,polls里的参数,里面包含了ptwebqq值</li>
+</ul>
+</li>
+</ul>
+<p>附带一张以前的截图<br><img src="/images/webqq01.jpg" alt="webqq"></p>
+<ul>
+<li>项目地址:<pre><code>git clone https://github.com/1oid/WebQQ-Robot-by-Plugin.git
+</code></pre></li>
+</ul>
+<hr>
 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/13/WebQQ-Robot-plugin/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://loid.online/2017/03/13/Proxy-Spider-插件化利用工具/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Loid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Loid's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/13/Proxy-Spider-插件化利用工具/" itemprop="url">
-                  Proxy Spider 插件化利用工具
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T00:39:40+08:00">
-                2017-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            
+            <a href="/tags/原创/" rel="tag"># 原创</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-          Proxy Spider for Python2.7 插件利用版-多线程通过调用自写插件,在爬行代理的同时对代理进行检测可用性.
+      
 
-
-环境说明
-Python 2.7环境
-requests 模块
-
-插件开发说明
-插件保存在 plugin/ 文件夹下
-  插件开发格式(可参照66ip的插件开发规范)
-#
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/13/Proxy-Spider-插件化利用工具/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/13/Proxy-Spider-插件化利用工具/" rel="next" title="Proxy Spider 插件化利用工具">
+                <i class="fa fa-chevron-left"></i> Proxy Spider 插件化利用工具
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://loid.online/2017/03/12/关于我的在线工具集/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Loid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Loid's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/12/关于我的在线工具集/" itemprop="url">
-                  关于我的在线工具集
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T01:41:49+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          Web在线工具集
-关于在线扫描的功能说明:
-
-在线漏洞检测服务
-- 采用第三方插件扫描平台对目标进行检测
-- 扫描内容包含web常规漏洞/服务器漏洞/cms识别以及很多已知的cms漏洞
-
-在线IP定位
-- 采用第三方高精度定位api对目标进行定位,成功定位率高达80%
-
-在线md5解密
-- 采用第三
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/关于我的在线工具集/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://loid.online/2017/03/11/Pytasploit-插件利用工具/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Loid">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Loid's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/11/Pytasploit-插件利用工具/" itemprop="url">
-                  Pytasploit 插件利用工具
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T18:07:09+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Pytasploit 扫描利用框架
-关于扫描器的一些说明  程序使用的是自己集成的插件来扫描的,所以对于扫描结果, 还是得看个人的插件集成情况.
-
-基本配置:
-  123Python2.7requests库bugscan sdk
-
-一些命令说明:  这些你都能从help中看到
-  123456789
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/11/Pytasploit-插件利用工具/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
           
           </div>
@@ -805,6 +492,10 @@ requests 模块
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -824,8 +515,17 @@ requests 模块
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -901,6 +601,22 @@ requests 模块
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebQQ-Robot-for-plugin"><span class="nav-number">1.</span> <span class="nav-text">WebQQ Robot for plugin</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1006,6 +722,10 @@ requests 模块
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
