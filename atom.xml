@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Loid&#39;s Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://loid.online/"/>
+  <updated>2017-03-15T07:05:49.676Z</updated>
+  <id>http://loid.online/</id>
+  
+  <author>
+    <name>Loid</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DirScanner 多线程目录扫描器</title>
+    <link href="http://loid.online/2017/03/15/DirScanner-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
+    <id>http://loid.online/2017/03/15/DirScanner-多线程目录扫描器/</id>
+    <published>2017-03-15T07:05:17.000Z</published>
+    <updated>2017-03-15T07:05:49.676Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="DirScanner-Python网站路径扫描-多线程版"><a href="#DirScanner-Python网站路径扫描-多线程版" class="headerlink" title="DirScanner Python网站路径扫描-多线程版"></a>DirScanner Python网站路径扫描-多线程版</h2><p>过狗扫描,防止多线程被安全狗等防护拦截</p>
+<hr>
+<ul>
+<li><p>关于程序</p>
+<pre><code>程序只做开发交流,任何法律责任与作者无关.
+转载请说明原处.Thakns.
+</code></pre></li>
+<li><p>程序使用</p>
+<pre><code>-h够看到如下帮助信息
+Usage: [-u &lt;Website/Target_url&gt;][-t &lt;Scan thread num&gt;]
+
+Options:
+  -h, --help     查看帮助信息
+  -u 必选,加网站链接  Example:-u http://www.example.com
+  -s 必选,网站开发脚本   Example:-s asp
+  -t 可选,默认线程数为10   Example:-t 50
+</code></pre></li>
+<li><p>项目地址</p>
+<pre><code>git clone https://github.com/1oid/DIrScanner.git dirscanner/
+</code></pre></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;DirScanner-Python网站路径扫描-多线程版&quot;&gt;&lt;a href=&quot;#DirScanner-Python网站路径扫描-多线程版&quot; class=&quot;headerlink&quot; title=&quot;DirScanner Python网站路径扫描-多线程版&quot;&gt;&lt;/a&gt;Di
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WebQQ Robot for plugin</title>
+    <link href="http://loid.online/2017/03/13/WebQQ-Robot-plugin/"/>
+    <id>http://loid.online/2017/03/13/WebQQ-Robot-plugin/</id>
+    <published>2017-03-12T18:55:14.000Z</published>
+    <updated>2017-03-12T19:19:32.699Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="WebQQ-Robot-by-plugin"><a href="#WebQQ-Robot-by-plugin" class="headerlink" title="WebQQ Robot by plugin"></a>WebQQ Robot by plugin</h2><p>一个可自我开发利用插件的webqq协议机器人</p>
+<hr>
+<ul>
+<li><p>脚本说明</p>
+<pre><code>可以自己编写功能插件,下面由插件开发相关
+机器人开发测试群: 248122847
+所需环境:
+    Python2.7
+    requests模块
+</code></pre></li>
+<li><p>关于插件开发</p>
+<ul>
+<li><p>格式</p>
+<p>可以参照plugins/文件夹下的插件</p>
+<pre><code># coding:utf-8
+class Plugin:
+    &apos;&apos;&apos;
+    菜单插件
+    &apos;&apos;&apos;
+    def __init__(self,command):
+        # 接受用户指令
+        self.command = command
+
+    # 判断用户发送的指令
+    # 发送过来的指令
+    def _cmd(self):
+        if self.command[:4] == &apos;help&apos;:
+            return self.usage
+</code></pre></li>
+<li>关于函数说明<pre><code>__init__(self,command)  必须, 用来接受用户参数
+_cmd(self)              必须, 用来处理并返回结果,结果是字符串
+</code></pre></li>
+<li>关于插件开启<pre><code>需要在startConf.py 下添加指令白名单.
+比如需要接收用户的 ip:127.0.0.1
+那么你可以在ALLOW_COMMAND 里面加上[&quot;ip&quot;]
+</code></pre></li>
+<li>关于机器人启用<pre><code>你需要先在网页端登录机器人,因为webqq没有输入账号的选项.
+所以说只能现在web端登录机器人,然后替换cookies 和ptwebqq值
+具体替换在startConf.py 里 我已经标记了需要替换的两个值
+最后就是用python webqq.py 开启机器人.
+</code></pre>  注: 上面的ptwebq值,就是你抓取流量的时候里,polls里的参数,里面包含了ptwebqq值</li>
+</ul>
+</li>
+</ul>
+<p>附带一张以前的截图<br><img src="/images/webqq01.jpg" alt="webqq"></p>
+<ul>
+<li>项目地址:<pre><code>git clone https://github.com/1oid/WebQQ-Robot-by-Plugin.git
+</code></pre></li>
+</ul>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;WebQQ-Robot-by-plugin&quot;&gt;&lt;a href=&quot;#WebQQ-Robot-by-plugin&quot; class=&quot;headerlink&quot; title=&quot;WebQQ Robot by plugin&quot;&gt;&lt;/a&gt;WebQQ Robot by plugin&lt;/
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://loid.online/tags/Python/"/>
+    
+      <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Proxy Spider 插件化利用工具</title>
+    <link href="http://loid.online/2017/03/13/Proxy-Spider-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    <id>http://loid.online/2017/03/13/Proxy-Spider-插件化利用工具/</id>
+    <published>2017-03-12T16:39:40.000Z</published>
+    <updated>2017-03-12T16:50:59.030Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Proxy-Spider-for-Python2-7-插件利用版-多线程"><a href="#Proxy-Spider-for-Python2-7-插件利用版-多线程" class="headerlink" title="Proxy Spider for Python2.7 插件利用版-多线程"></a>Proxy Spider for Python2.7 插件利用版-多线程</h2><p>通过调用自写插件,在爬行代理的同时对代理进行检测可用性.</p>
+<hr>
+<ul>
+<li><p>环境说明</p>
+<pre><code>Python 2.7环境
+requests 模块
+</code></pre></li>
+<li><p>插件开发说明</p>
+<pre><code>插件保存在 plugin/ 文件夹下
+</code></pre><p>  插件开发格式(可参照66ip的插件开发规范)</p>
+<pre><code># 只需要修改code这部分就可以了
+class SpiderPlugin():
+    def spiderIP():
+        ...code...
+        # return 的是 一个包含tuple的list
+        # tuple 里严格格式为 ip,port 如 [(127.0.0.1,8080)]
+        return [(ip,port),(ip,port)....]
+</code></pre></li>
+<li><p>关于主文件 main.py 的说明</p>
+<pre><code>range(线程数)  必须,两个range的值必须为一样的
+plugin=     默认为66ip 这个是你自己编写的爬虫插件
+timeout=    默认为10,主要是设置验证代理的超时时间
+filename=   默认为None,如果为None,只会把检测结果打印出来,为不会保存
+</code></pre></li>
+<li><p>项目:</p>
+<pre><code>git clone https://github.com/1oid/Proxy-Spider-by-plugins.git proxy-spider
+</code></pre><p>如有其他疑问,可以在我的github上留言,或者加我qq</p>
+</li>
+</ul>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Proxy-Spider-for-Python2-7-插件利用版-多线程&quot;&gt;&lt;a href=&quot;#Proxy-Spider-for-Python2-7-插件利用版-多线程&quot; class=&quot;headerlink&quot; title=&quot;Proxy Spider for Pyt
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://loid.online/tags/Python/"/>
+    
+      <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于我的在线工具集</title>
+    <link href="http://loid.online/2017/03/12/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7%E9%9B%86/"/>
+    <id>http://loid.online/2017/03/12/关于我的在线工具集/</id>
+    <published>2017-03-11T17:41:49.000Z</published>
+    <updated>2017-03-12T16:42:59.571Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Web在线工具集"><a href="#Web在线工具集" class="headerlink" title="Web在线工具集"></a>Web在线工具集</h2><ul>
+<li><p>关于在线扫描的功能说明:</p>
+<ol>
+<li><p>在线漏洞检测服务</p>
+<pre><code>- 采用第三方插件扫描平台对目标进行检测
+- 扫描内容包含web常规漏洞/服务器漏洞/cms识别以及很多已知的cms漏洞
+</code></pre></li>
+<li><p>在线IP定位</p>
+<pre><code>- 采用第三方高精度定位api对目标进行定位,成功定位率高达80%
+</code></pre></li>
+<li><p>在线md5解密</p>
+<pre><code>- 采用第三方的md5解密网对密文解密
+</code></pre></li>
+</ol>
+</li>
+<li><p>关于其他</p>
+<pre><code>因为本人暂且有点事情,所以扫描服务将于4月中旬再开启。
+如果您对我们的产品很满意,或者是愿意帮忙分担高昂的服务器开销费用。
+可以联系本人,我们将感激不尽。
+</code></pre></li>
+<li><p>目前的扫描地址:</p>
+<p>  <a href="http://scan.1531919.com" target="_blank" rel="external">http://scan.1531919.com</a>   目前开启一段时间</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Web在线工具集&quot;&gt;&lt;a href=&quot;#Web在线工具集&quot; class=&quot;headerlink&quot; title=&quot;Web在线工具集&quot;&gt;&lt;/a&gt;Web在线工具集&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;关于在线扫描的功能说明:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在线漏洞检测服务
+    
+    </summary>
+    
+    
+      <category term="原创,web,漏洞" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B-web-%E6%BC%8F%E6%B4%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytasploit 插件利用工具</title>
+    <link href="http://loid.online/2017/03/11/Pytasploit-%E6%8F%92%E4%BB%B6%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    <id>http://loid.online/2017/03/11/Pytasploit-插件利用工具/</id>
+    <published>2017-03-11T10:07:09.000Z</published>
+    <updated>2017-03-12T16:42:35.609Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Pytasploit-扫描利用框架"><a href="#Pytasploit-扫描利用框架" class="headerlink" title="Pytasploit 扫描利用框架"></a>Pytasploit 扫描利用框架</h2><ul>
+<li><p>关于扫描器的一些说明<br>  程序使用的是自己集成的插件来扫描的,所以对于扫描结果, 还是得看个人的插件集成情况.</p>
+</li>
+<li><p>基本配置:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Python2.7</div><div class="line">requests库</div><div class="line">bugscan sdk</div></pre></td></tr></table></figure>
+</li>
+<li><p>一些命令说明:<br>  这些你都能从help中看到</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">list plugins                    | 查看所有的插件</div><div class="line">set url http://www.xxx.com/     | 设置待扫描的url地址</div><div class="line">set plugin wordpress            | 设置目标的cms</div><div class="line">run                             | 开始扫描</div><div class="line">help                            | 查看帮助</div><div class="line"></div><div class="line">use web/scanner/sameip          | 使用工具模块</div><div class="line">show options                    | 查看待设置选项</div><div class="line">run                             | 开始</div></pre></td></tr></table></figure>
+</li>
+<li><p>脚本测试截图</p>
+<ul>
+<li><p>拉起漏洞插件来对web进行检测<br>  <img src="/images/psf01.png" alt="terminal psf"></p>
+</li>
+<li><p>对一些工具的设置与利用<br>  <img src="/images/psf02.png" alt="terminal psf2"></p>
+</li>
+</ul>
+</li>
+<li><p>项目地址<br>  <a href="https://github.com/1oid/pytasploit.git" target="_blank" rel="external">https://github.com/1oid/pytasploit.git</a></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Pytasploit-扫描利用框架&quot;&gt;&lt;a href=&quot;#Pytasploit-扫描利用框架&quot; class=&quot;headerlink&quot; title=&quot;Pytasploit 扫描利用框架&quot;&gt;&lt;/a&gt;Pytasploit 扫描利用框架&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;关
+    
+    </summary>
+    
+      <category term="Python" scheme="http://loid.online/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://loid.online/tags/Python/"/>
+    
+      <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+  </entry>
+  
+</feed>
