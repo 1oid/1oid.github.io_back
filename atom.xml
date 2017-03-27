@@ -306,9 +306,9 @@ filename=   默认为None,如果为None,只会把检测结果打印出来,为不
     
       <category term="Python" scheme="http://loid.online/tags/Python/"/>
     
-      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
-    
       <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
     
   </entry>
   
