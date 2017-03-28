@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-03-28T16:29:27.799Z</updated>
+  <updated>2017-03-28T16:31:33.325Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://loid.online/2017/03/29/WiFi-Hacker-for-Web/"/>
     <id>http://loid.online/2017/03/29/WiFi-Hacker-for-Web/</id>
     <published>2017-03-28T16:21:18.000Z</published>
-    <updated>2017-03-28T16:29:27.799Z</updated>
+    <updated>2017-03-28T16:31:33.325Z</updated>
     
     <content type="html"><![CDATA[<h2 id="挖坑：-WiFi在线工具集开发"><a href="#挖坑：-WiFi在线工具集开发" class="headerlink" title="挖坑： WiFi在线工具集开发"></a>挖坑： WiFi在线工具集开发</h2><p>利用暑假时间搞完</p>
 <hr>
@@ -35,7 +35,7 @@
 </li>
 <li><p>目前进度</p>
 <ul>
-<li>2017-03-17 附件热点扫描开发完毕<br><img src="/images/wifimg.png" alt="wifimg"></li>
+<li>2017-03-17 附近热点扫描开发完毕<br><img src="/images/wifimg.png" alt="wifimg"></li>
 </ul>
 </li>
 </ul>
