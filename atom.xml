@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-03-17T14:38:29.459Z</updated>
+  <updated>2017-03-28T16:29:27.799Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WiFi Hacker for Web</title>
+    <link href="http://loid.online/2017/03/29/WiFi-Hacker-for-Web/"/>
+    <id>http://loid.online/2017/03/29/WiFi-Hacker-for-Web/</id>
+    <published>2017-03-28T16:21:18.000Z</published>
+    <updated>2017-03-28T16:29:27.799Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="挖坑：-WiFi在线工具集开发"><a href="#挖坑：-WiFi在线工具集开发" class="headerlink" title="挖坑： WiFi在线工具集开发"></a>挖坑： WiFi在线工具集开发</h2><p>利用暑假时间搞完</p>
+<hr>
+<ul>
+<li><p>目前打算开发的功能有</p>
+<ul>
+<li>附件WiFi扫描</li>
+<li>ARP欺骗</li>
+<li>热点伪造</li>
+<li>还没想到….</li>
+</ul>
+</li>
+<li><p>目前进度</p>
+<ul>
+<li>2017-03-17 附件热点扫描开发完毕<br><img src="/images/wifimg.png" alt="wifimg"></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;挖坑：-WiFi在线工具集开发&quot;&gt;&lt;a href=&quot;#挖坑：-WiFi在线工具集开发&quot; class=&quot;headerlink&quot; title=&quot;挖坑： WiFi在线工具集开发&quot;&gt;&lt;/a&gt;挖坑： WiFi在线工具集开发&lt;/h2&gt;&lt;p&gt;利用暑假时间搞完&lt;/p&gt;
+&lt;hr&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>本机连接内网服务器(花生壳映射)</title>
