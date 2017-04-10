@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-04-10T20:04:05.468Z</updated>
+  <updated>2017-04-10T20:17:07.066Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -20,36 +20,26 @@
     <link href="http://loid.online/2017/04/11/SQL-Injection-Study/"/>
     <id>http://loid.online/2017/04/11/SQL-Injection-Study/</id>
     <published>2017-04-10T19:01:01.000Z</published>
-    <updated>2017-04-10T20:04:05.468Z</updated>
+    <updated>2017-04-10T20:17:07.066Z</updated>
     
     <content type="html"><![CDATA[<h2 id="SQL注入攻击学习笔记"><a href="#SQL注入攻击学习笔记" class="headerlink" title="SQL注入攻击学习笔记"></a>SQL注入攻击学习笔记</h2><hr>
 <ul>
 <li><p>[非盲跟踪] 在返回各种数据库服务器时对应的查询</p>
-<pre><code>    数据库服务器                查 询
-Microsoft SQL Server        SELECT @@version
-    MySQL                   SELECT version()
-                            SELECT @@version
-    Oracle                  SELECT banner FROM v$version
-                            SELECT banner FROM v$version WHERE rownum=1
+<pre><code>Microsoft SQL Server        SELECT @@version
+    MySQL                   SELECT version() / SELECT @@version
+    Oracle                  SELECT banner FROM v$version / SELECT banner FROM v$version WHERE rownum=1
     PostgreSQL              SELECT version()
 </code></pre></li>
 <li><p>[盲跟踪]从字符串推断数据库服务版本</p>
-<pre><code>    数据库服务器                查询
-Microsoft SQL Server        SELECT &apos;some&apos;+&apos;string&apos;
-    MySQL                   SELECT &apos;some&apos; &apos;string&apos;
-                            SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
-    Oracle                  SELECT &apos;some&apos;||&apos;string&apos;
-                            SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
-    PostgreSQL              SELECT &apos;some&apos;||&apos;string&apos;
-                            SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
+<pre><code>Microsoft SQL Server        SELECT &apos;some&apos;+&apos;string&apos;
+    MySQL                   SELECT &apos;some&apos; &apos;string&apos; / SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
+    Oracle                  SELECT &apos;some&apos;||&apos;string&apos; / SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
+    PostgreSQL              SELECT &apos;some&apos;||&apos;string&apos; / SELECT CONCAT(&apos;some&apos;,&apos;string&apos;)
 </code></pre></li>
 <li><p>[盲跟踪]从数字函数推断数据库服务器版本</p>
 <pre><code>    数据库服务器                查询
-Microsoft SQL Server        @@pack_recevived
-                            @@rowcount
-    MySQL                   connection_id()
-                            last_insert_id()
-                            row_count()
+Microsoft SQL Server        @@pack_recevived / @@rowcount
+    MySQL                   connection_id() / last_insert_id() / row_count()
     Oracle                  BITAND(1,1)
     PostgreSQL              SELECT EXTRACT(DOW FROM NOW())
 </code></pre></li>
