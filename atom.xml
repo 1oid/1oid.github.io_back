@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-04-15T15:51:16.719Z</updated>
+  <updated>2017-04-15T15:54:05.835Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/"/>
     <id>http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/</id>
     <published>2017-04-15T15:39:11.000Z</published>
-    <updated>2017-04-15T15:51:16.719Z</updated>
+    <updated>2017-04-15T15:54:05.835Z</updated>
     
     <content type="html"><![CDATA[<h3 id="这才是日网吧的正确姿势"><a href="#这才是日网吧的正确姿势" class="headerlink" title="这才是日网吧的正确姿势!"></a>这才是日网吧的正确姿势!</h3><hr>
 <blockquote>
 <p>来被 Windows SMB 远程溢出的0day 闹了群.早上有事,晚上到了网吧复现了下.</p>
 </blockquote>
 <ul>
-<li><p>如何安装所需环境,可以看看Luan表哥的复现,很详细.有几点需要注意的：</p>
+<li><p>如何安装所需环境,这里我就不再叙述一遍,可以看看Luan表哥的复现,很详细.有几点需要注意的：</p>
 <ul>
 <li>Luan’s Blog: <a href="http://lu4n.com/" target="_blank" rel="external">http://lu4n.com/</a></li>
 <li>上面博客经给出了Python26 和 pywin32 64位的</li>
