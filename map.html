@@ -6,7 +6,6 @@
          function showLocation(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            {#alert("Latitude : " + latitude + " Longitude: " + longitude);#}
             document.getElementById("latitude").value = latitude;
             document.getElementById("longitude").value = longitude;
             document.myforms.submit();
