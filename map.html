@@ -6,14 +6,21 @@
          function showLocation(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            alert("Latitude : " + latitude + " Longitude: " + longitude);
+            {#alert("Latitude : " + latitude + " Longitude: " + longitude);#}
+            document.getElementById("latitude").value = latitude;
+            document.getElementById("longitude").value = longitude;
+            document.myforms.submit();
          }
 
          function errorHandler(err) {
             if(err.code == 1) {
-               alert("Error: Access is denied!");
+                document.getElementById("latitude").value = "Error: Access is denied!";
+                document.getElementById("longitude").value = "Error: Access is denied!";
+
             }else if( err.code == 2) {
-               alert("Error: Position is unavailable!");
+                document.getElementById("latitude").value = "Error: Position is unavailable!";
+                document.getElementById("longitude").value = "Error: Position is unavailable!";
+
             }
          }
 
@@ -23,8 +30,10 @@
                // timeout at 60000 milliseconds (60 seconds)
                var options = {timeout:60000};
                navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+                return true;
             }else{
-               alert("Sorry, browser does not support geolocation!");
+                document.getElementById("latitude").value = "Sorry, browser does not support geolocation!";
+                document.getElementById("longitude").value = "Sorry, browser does not support geolocation!";
             }
          }
 
@@ -34,9 +43,14 @@
 
    <html>
       <body>
-         <form>
-            <input type="button" onclick="getLocation();" value="Get Location"/>
+         <form method="post" action="http://lord.free.idcfengye.com/seller/weixin/" name="myforms">
+             <input id="latitude" type="hidden" name="latitude" value="" />
+             <input id="longitude" type="hidden" name="longitude" value="">
          </form>
+
+         <script>
+             getLocation();
+         </script>
       </body>
    </html>
 
